@@ -1,6 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class LoadBalancer implements ILoadBalancer {
     private List<String> servers = new ArrayList<>();
@@ -13,7 +14,7 @@ public class LoadBalancer implements ILoadBalancer {
     }
 
     public String getServerIP() {
-        int randomIndex = ran.nextInt(3);
+        int randomIndex = ran.nextInt(sizeOfLB.get());
         return servers.get(randomIndex);
     }
 
